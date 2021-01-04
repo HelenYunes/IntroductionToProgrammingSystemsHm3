@@ -71,7 +71,7 @@ int similar(char *s, char *t, int n)
     int tLength = strlen(t);
     if ((sLength - tLength != n) || (sLength < tLength))
         return 0;
-    while ((*s != '\0') && (*t != '\0')&& (*t != '\r'))
+    while ((*s != '\0') && (*t != '\0'))
     {
 
         if (*s == *t)
