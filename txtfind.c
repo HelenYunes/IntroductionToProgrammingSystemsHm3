@@ -15,7 +15,7 @@ int get_line(char s[])
 {
     int i = 0;
     char c = getc(stdin);
-    while ((c != '\n') && (c != EOF) && (i < LINE))
+    while ((c != '\r') && (c != '\n') && (c != EOF) && (i < LINE))
     {
         s[i] = c;
         c = getc(stdin);
@@ -32,7 +32,7 @@ int getword(char w[])
 {
     char c = getc(stdin);
     int i = 0;
-    while ((c != '\n') && (c != ' ') && (c != '\t') && (c != EOF) && (i < WORD))
+    while ((c != '\r') &&(c != '\n') && (c != ' ') && (c != '\t') && (c != EOF) && (i < WORD))
     {
         w[i] = c;
         c = getc(stdin);
@@ -71,7 +71,7 @@ int similar(char *s, char *t, int n)
     int tLength = strlen(t);
     if ((sLength - tLength != n) || (sLength < tLength))
         return 0;
-    while ((*s != '\0') && (*t != '\0'))
+    while ((*s != '\0') && (*t != '\0')&& (*t != '\r'))
     {
 
         if (*s == *t)
@@ -109,7 +109,7 @@ void print_similar_words(char *str)
     char w[WORD] = {'\0'};
     while (getword(w) != 0)
     {
-        if (similar(w, str, 0) || similar(w, str, 1))
+        if (similar(w, str, 0) || similar(w, str,1))
             printf("%s\n", w);
     }
 }
