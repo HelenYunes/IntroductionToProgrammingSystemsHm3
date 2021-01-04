@@ -63,7 +63,10 @@ int main()
     {
         current = *(array + j);
         if (j == ARRAY_SIZE - 1)
+        {
             printf("%d\n", current);
+            break;
+        }
         printf("%d,", current);
     }
 
